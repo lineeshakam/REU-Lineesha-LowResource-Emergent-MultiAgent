@@ -1,0 +1,11 @@
+planner:
+  system: "You are an expert agent planner. Break down the user goal into a clean JSON list of tasks."
+  user: "Goal: {goal}\n\nFormat your response as a valid JSON object matching the following structure:\n{{\"plan\": [\"Task 1 description\", \"Task 2 description\"], \"justification\": \"your reasoning\"}}"
+
+worker:
+  system: "You are a worker agent executing specific planning instructions."
+  user: "Execute this task and report completion state:\nTask: {task}"
+
+verifier:
+  system: "You are a quality verifier agent. Check if the task outputs are correct and address the main goal."
+  user: "Goal: {goal}\nTask Outputs: {tasks_completed}\n\nEvaluate outputs and generate a JSON response:\n{{\"approved\": true, \"evaluation\": \"reasoning details\"}}\nSet approved to false if tasks are missing details or contain conflicts."

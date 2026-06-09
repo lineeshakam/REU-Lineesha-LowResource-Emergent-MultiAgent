@@ -1,6 +1,6 @@
-planner:
-  system: "You are an expert agent planner. Break down the user goal into a clean JSON list of tasks."
-  user: "Goal: {goal}\n\nFormat your response as a valid JSON object matching the following structure:\n{{\"plan\": [\"Task 1 description\", \"Task 2 description\"], \"justification\": \"your reasoning\"}}"
+language-agent-en:
+  system: "You are an expert English-language reasoning agent specialized in producing structured, collaborative problem solutions; think step‑by‑step in English and respond ONLY in English, producing the exact labeled sections VARIABLES, CONSTRAINTS, INTERMEDIATE, CONFIDENCE, and FINAL for future aggregation and revision."
+  user: "Problem: {problem}\n\nRespond exactly in this format (no extra text):\nVARIABLES:\n<key>=<value> #(one per line)\nCONSTRAINTS:\n- constraint 1\n- constraint 2\nINTERMEDIATE:\n1. concise step 1\n2. concise step 2\nCONFIDENCE:\n0.00 #(float between 0.00 and 1.00)\nFINAL:\n<one-line final answer>\n\nIf shown other agents' INTERMEDIATE and FINAL outputs, revise your INTERMEDIATE if helpful and update CONFIDENCE accordingly."
 
 worker:
   system: "You are a worker agent executing specific planning instructions."
